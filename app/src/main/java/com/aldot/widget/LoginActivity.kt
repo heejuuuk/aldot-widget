@@ -15,14 +15,25 @@ import okhttp3.Request
 import org.json.JSONObject
 import kotlin.math.roundToInt
 
-class AldotWidgetProvider : AppWidgetProvider() {
+package com.aldot.widget
 
-    override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
-        for (appWidgetId in appWidgetIds) {
-            updateWidget(context, appWidgetManager, appWidgetId)
+import android.os.Bundle
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import androidx.appcompat.app.AppCompatActivity
+
+class LoginActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val webView = WebView(this).apply {
+            settings.javaScriptEnabled = true
+            settings.domStorageEnabled = true
+            webViewClient = WebViewClient()
         }
+        setContentView(webView)
+        webView.loadUrl("https://www.uplusumobile.com/")
     }
-
+}
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
         if (intent.action == "ACTION_REFRESH_ALDOT") {
