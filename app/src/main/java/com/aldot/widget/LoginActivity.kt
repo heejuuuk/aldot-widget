@@ -14,6 +14,6 @@ class LoginActivity : AppCompatActivity() {
             webViewClient = WebViewClient()
         }
         setContentView(webView)
-        webView.loadUrl("https://www.uplusumobile.com/")
+webView.loadUrl("[https://www.uplusmvno.com/](https://www.uplusmvno.com/)")
     }
 }
